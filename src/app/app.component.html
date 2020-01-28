@@ -1,0 +1,104 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Welcome</h1>
+    <h2>Sapient XT Hiring test problem statement solution by Akhilesh Bamhore</h2>
+  </div>
+  <div class="row">
+    <div class="col-12 col-sm-3">
+      <h5>Filters</h5>
+      <div class="card mb-3">
+        <div class="card-header">
+          Species
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="human">
+              <label class="custom-control-label" for="human">Human</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="mytholog">
+              <label class="custom-control-label" for="mytholog">Mytholog</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="other">
+              <label class="custom-control-label" for="other">Other Species...</label>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="card mb-3">
+        <div class="card-header">
+          Gender
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="male">
+              <label class="custom-control-label" for="male">Male</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="female">
+              <label class="custom-control-label" for="female">Female</label>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-12 col-sm-9">
+      <div class="row">
+        <div class="col-12 col-sm-6 mb-3">
+          <h5>Search by Name</h5>
+          <form class="form-inline">
+            <label class="sr-only" for="name">Search by Name</label>
+            <input type="text" class="form-control mb-2 mr-sm-2" id="name" name="name" placeholder="Enter Name"
+              [(ngModel)]="filterData.name">
+          </form>
+        </div>
+        <div class="col-12 col-sm-6 mb-3 pb-2 align-self-end">
+          <select class="form-control" (change)="sortCharacters($event.target.value)">
+            <option value="">Sort by ID</option>
+            <option value="false">Ascending</option>
+            <option value="true">Descending</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 col-lg-3 mb-4 card-list"
+          *ngFor="let character of characters.results | orderBy: 'character.id': sort | filterBy: filterData">
+          <div class="card h-100">
+            <div class="card-img">
+              <img [src]="character.image" class="card-img-top" alt="{{ character.name }}">
+              <div class="card-header">
+                <h6 class="card-title mb-0">{{ character.name }}</h6>
+                <p class="card-text"><small>id: {{ character.id }} - created: {{ character.created | timeAgo }}</small>
+                </p>
+              </div>
+            </div>
+            <div class="card-body">
+              <dl class="row">
+                <dt class="col-5">Status</dt>
+                <dd class="col-7 text-right">{{ character?.status }}</dd>
+                <dt class="col-5">Species</dt>
+                <dd class="col-7 text-right">{{ character?.species }}</dd>
+                <dt class="col-5">Gender</dt>
+                <dd class="col-7 text-right">{{ character?.gender }}</dd>
+                <dt class="col-5">Origin</dt>
+                <dd class="col-7 text-right">{{ character?.origin?.name }}</dd>
+                <dt class="col-5">Last Location</dt>
+                <dd class="col-7 text-right">{{ character?.location?.name }}</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

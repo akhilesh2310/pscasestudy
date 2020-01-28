@@ -1,0 +1,20 @@
+Instruction to run the app:
+
+If angular cli is installed navigate to pscasestudy than
+npm install
+ng serve
+
+Or running the dist folder directly:
+
+First install the package globally
+
+npm install http-server -g
+cd to pscasestudy
+than type command
+http-server dist/pscasestudy
+Navigate to anyone
+
+http://192.168.137.1:8080
+http://10.60.20.224:8080
+http://192.168.0.106:8080
+http://127.0.0.1:8080

@@ -1,0 +1,39 @@
+.card-list{
+    .card {
+        background-color: #333333;
+        color: #fff;
+        
+    }
+    dl {
+        font-size: 8px;
+        dt {
+            text-transform: uppercase;
+            color: #999999;
+        }
+        dd {
+            color: orange;
+        }
+    }
+    small {
+        font-size: 9px;
+        color: #d3d3d3;
+    }
+}
+.card-img {
+    position: relative;
+    .card-header {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding: 5px;
+        background-color: rgba($color: #000000, $alpha: 0.7);
+        .card-title {
+            font-size: 12px;
+        }
+    }
+}
+.custom-control-label {
+    cursor: pointer;
+    display: block;
+}
